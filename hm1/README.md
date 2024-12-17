@@ -48,7 +48,7 @@ sudo useradd -u 1234 -s /bin/bash -g testgroup1 -m testuser
 
 - Add new user “testuser2” with UID 4321, Shell: /bin/bash, primary group = “testgroup2”, create homedir automatically.
 ``` Bash VM
-sudo useradd -g 4321 -s /bin/bash -g testgroup2 -m testuser2
+sudo useradd -u 4321 -s /bin/bash -g testgroup2 -m testuser2
 ```
 
 - Rename “testuser” to “testuser1”
