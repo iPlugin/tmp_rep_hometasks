@@ -37,7 +37,7 @@ sudo systemctl restart ssh
 
 # Виконання домашнього
 - Ubuntu Linux installation to the Virtual Box VM, configure host-only network and organize network connection between the main PC and VM.
-![alt text](image.png)
+![alt text](screen/image.png)
 
 - Add new group “testgroup1” with GID 1234
 ``` Bash VM
@@ -49,7 +49,7 @@ sudo groupadd -g 1234 testgroup1
 sudo groupadd -g 4321 testgroup2
 ```
 
-![alt text](image-1.png)
+![alt text](screen/image-1.png)
 
 - Add new user “testuser” with UID 1234, Shell: /bin/bash, primary group = “testgroup1”, create homedir automatically.
 ``` Bash VM
@@ -61,7 +61,7 @@ sudo useradd -u 1234 -s /bin/bash -g testgroup1 -m testuser
 sudo useradd -u 4321 -s /bin/bash -g testgroup2 -m testuser2
 ```
 
-![alt text](image-2.png)
+![alt text](screen/image-2.png)
 
 - Rename “testuser” to “testuser1”
 ``` Bash VM
@@ -74,23 +74,23 @@ sudo mv /home/testuser /home/testuser1
 sudo usermod -d /home/testuser1 testuser1
 ```
 
-![alt text](image-3.png)
+![alt text](screen/image-3.png)
 
 # Перевірка
 ``` Bash VM
 cat /etc/passwd
 ```
 
-![alt text](image-4.png)
+![alt text](screen/image-4.png)
 
 ``` Bash VM
 cat /etc/group
 ```
 
-![ll](image-5.png)
+![alt text](screen/image-5.png)
 
 ``` Bash VM
 ll /home
 ```
 
-![alt text](image-6.png)
+![alt text](screen/image-6.png)
