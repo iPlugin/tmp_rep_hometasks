@@ -171,7 +171,7 @@ Screenshots provided
 
 3. Changing the Shell for the users:
 
-![alt text](image-15.png)
+![alt text](screen/image-15.png)
 
 4. Exploring the Most useful commands:
 Extended table with additional information for the “Most useful commands” is created and provided for evaluation
