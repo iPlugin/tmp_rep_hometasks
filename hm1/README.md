@@ -70,7 +70,6 @@ sudo usermod -l testuser1 testuser
 
 - Modify “testuser1” directory to be the same as username.
 ``` Bash VM
-sudo mv /home/testuser /home/testuser1
 sudo usermod -d /home/testuser1 testuser1
 ```
 
