@@ -7,7 +7,7 @@
 - Investigate and find-out where new PPA was stored in the FS: /etc/apt/…
 - Investigate where GPG key was stored and how it was verified.
 - Investigate where telegram APP files were placed to the FS.
-- Run telegram APP from Ubuntu GUI
+- Run telegram APP from Ubuntu GUI.
 - Find-out “telegram” app PID, process entry and parameters (use appropriate CLI app).
 - Remove telegram APP using “apt-get” application from CLI.
 - Remove telegram PPA repo from the system using CLI.
@@ -36,7 +36,7 @@ sudo apt install vim
 vim --version
 ```
 
-![alt text](image.png)
+![alt text](screen/image.png)
 
 - Add new APT repository from PPA and install popular “telegram” messendger: `ppa:atareao/telegram`
 
@@ -44,13 +44,13 @@ vim --version
 sudo add-apt-repository ppa:atareao/telegram
 ```
 
-![alt text](image-1.png)
+![alt text](screen/image-1.png)
 
 ``` Bash
 sudo apt install telegram
 ```
 
-![alt text](image-4.png)
+![alt text](screen/image-4.png)
 
 - Investigate and find-out where new PPA was stored in the FS: /etc/apt/…
 
@@ -58,7 +58,7 @@ sudo apt install telegram
 ll /etc/apt/sources.list.d
 ```
 
-![alt text](image-2.png)
+![alt text](screen/image-2.png)
 
 - Investigate where GPG key was stored and how it was verified.
 
@@ -66,7 +66,7 @@ ll /etc/apt/sources.list.d
 ll /etc/apt/trusted.gpg.d/
 ```
 
-![alt text](image-3.png)
+![alt text](screen/image-3.png)
 
 - Investigate where telegram APP files were placed to the FS.
 
@@ -74,11 +74,11 @@ ll /etc/apt/trusted.gpg.d/
 dpkg -L telegram
 ```
 
-![alt text](image-5.png)
+![alt text](screen/image-5.png)
 
 - Run telegram APP from Ubuntu GUI
 
-![alt text](image-6.png)
+![alt text](screen/image-6.png)
 
 - Find-out “telegram” app PID, process entry and parameters (use appropriate CLI app).
 
@@ -87,7 +87,7 @@ pidof telegram
 ps aux | grep "telegram"
 ```
 
-![alt text](image-7.png)
+![alt text](screen/image-7.png)
 
 - Remove telegram APP using “apt-get” application from CLI.
 
@@ -95,7 +95,7 @@ ps aux | grep "telegram"
 sudo apt-get remove telegram
 ```
 
-![alt text](image-8.png)
+![alt text](screen/image-8.png)
 
 - Remove telegram PPA repo from the system using CLI.
 
@@ -103,7 +103,7 @@ sudo apt-get remove telegram
 sudo add-apt-repository --remove ppa:atareao/telegram
 ```
 
-![alt text](image-9.png)
+![alt text](screen/image-9.png)
 
 2. Additional find task: 
 
@@ -113,7 +113,7 @@ sudo add-apt-repository --remove ppa:atareao/telegram
 sudo find / -type f -size +1G 2> /dev/null
 ```
 
-![alt text](image-10.png)
+![alt text](screen/image-10.png)
 
 - Find out how to find empty files and directories and perform finding in the system temporary directory.
 
@@ -121,7 +121,7 @@ sudo find / -type f -size +1G 2> /dev/null
 sudo find /tmp -empty
 ```
 
-![alt text](image-11.png)
+![alt text](screen/image-11.png)
 
 - Find out how to find all files and directories in the user’s home directory which were changed within the last hour and find them.
 
@@ -129,7 +129,7 @@ sudo find /tmp -empty
 sudo find ~ -mmin -60 2> /dev/null
 ```
 
-![alt text](image-12.png)
+![alt text](screen/image-12.png)
 
 - Perform the Item above but for the files and directories accessed within the last hour.
 
@@ -137,7 +137,7 @@ sudo find ~ -mmin -60 2> /dev/null
 sudo find ~ -amin -60 2> /dev/null
 ```
 
-![alt text](image-13.png)
+![alt text](screen/image-13.png)
 
 - Find all files with permissions for reading, writing and executing for the owner, group and others in the user’s home directory.
 
@@ -145,7 +145,7 @@ sudo find ~ -amin -60 2> /dev/null
 sudo find ~ -type f -perm 777
 ```
 
-![alt text](image-14.png)
+![alt text](screen/image-14.png)
 
 3. Vimtutor task
 - Install vimtutor
@@ -154,7 +154,7 @@ sudo find ~ -type f -perm 777
 which vimtutor
 ```
 
-![alt text](image-15.png)
+![alt text](screen/image-15.png)
 
 - Run and practice vimtutor
 
@@ -162,7 +162,7 @@ which vimtutor
 vimtutor
 ```
 
-![alt text](image-16.png)
+![alt text](screen/image-16.png)
 
 4. Extending user’s BASH profile.
 
@@ -175,7 +175,7 @@ source ~/.bashrc
 
 `Перейти в insert режим Esc -> i`
 
-![alt text](image-17.png)
+![alt text](screen/image-17.png)
 
 - Add shell function “arps” displaying ARP table from the /proc/net/arp node.
 
@@ -184,7 +184,7 @@ vim ~/.bashrc
 source ~/.bashrc
 ```
 
-![alt text](image-18.png)
+![alt text](screen/image-18.png)
 
 `Зберегти і вийти Esc -> :wq`
 
@@ -192,4 +192,4 @@ source ~/.bashrc
 arps
 ```
 
-![alt text](image-19.png)
+![alt text](screen/image-19.png)

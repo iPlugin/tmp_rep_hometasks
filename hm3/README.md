@@ -11,14 +11,14 @@
 - Try deleting files belonging to testuser1 from the testuser2 account
 - Allow file deletion from this directory by other users
 - Try deleting files belonging to testuser1 from the testuser2 account
-- Provide Terminal screenshots of the performed operations.
+- Provide Terminal screenshots of the performed operations
 
-2. Verify that SUID bit does not work for executable Shell scripts.
+2. Verify that SUID bit does not work for executable Shell scripts
 - Create suid_test.sh script from the testuser1 credentials with the following content: “#!/bin/sh whoami”
 - Set execution bit for everyone
 - Try executing test_suid.sh script from different users
 - Try changing UIDs to the different users to test_suid.sh and repeat Item# 3
-- Provide Terminal screenshots of the performed operations.
+- Provide Terminal screenshots of the performed operations
 
 3. Changing the Shell for the users:
 - Install zsh
@@ -30,13 +30,13 @@
 - Change shell to tcsh for the user testuser2
 - Log-in to CLI with the testuser2 credentials
 - Output processes list for the root user
-- Capture Screenshots for each of the Item above.
+- Capture Screenshots for each of the Item above
 
 4. Exploring the Most useful commands:
-- Create a table (text, excel/google sheet, e.t.c.) for the Most useful commands Chapter which would consist of the following rows:Brief Description/Command type(binary, shell built-in, e.t.c.)/Permissions(In case of separate binary)/Usage(Short or Traditional usage).
+- Create a table (text, excel/google sheet, e.t.c.) for the Most useful commands Chapter which would consist of the following rows:Brief Description/Command type(binary, shell built-in, e.t.c.)/Permissions(In case of separate binary)/Usage(Short or Traditional usage)
 
 5. Find task:
-- Find all files containing SUID bit in.
+- Find all files containing SUID bit in
 - Provide find options used
 - Capture and provide an output for evaluation
 
