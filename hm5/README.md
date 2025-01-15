@@ -127,3 +127,46 @@ ls -l /home/test_tmp
 ```
 ![alt text](image-14.png)
 
+### Verify that SUID bit does not work for executable Shell scripts.
+- Create suid_test.sh script from the testuser1 credentials with the following content: “#!/bin/sh whoami”
+``` Bash
+su testuser1 # Enter password for testuser1
+nano /home/test_tmp/suid_test.sh
+```
+![alt text](image-15.png)
+
+``` Bash
+cat /home/test_tmp/suid_test.sh
+```
+![alt text](image-16.png)
+
+- Set execution bit for everyone
+``` Bash
+chmod +x /home/test_tmp/suid_test.sh
+```
+![alt text](image-17.png)
+
+- Try executing test_suid.sh script from different users
+``` Bash
+whoami # переконатися що я testuser1
+/home/test_tmp/suid_test.sh
+su testuser2
+/home/test_tmp/suid_test.sh
+```
+![alt text](image-18.png)
+
+- Try changing UIDs to the different users to test_suid.sh and repeat Item# 3
+``` Bash
+sudo chown testuser2 /home/test_tmp/suid_test.sh
+```
+![alt text](image-19.png)
+
+``` Bash
+whoami # переконатися що я testuser1
+/home/test_tmp/suid_test.sh
+su testuser2
+/home/test_tmp/suid_test.sh
+```
+![alt text](image-20.png)
+
+**Я підозрюю що 3-ій крок мені мало вибити помилку, а виконавши 4-ий крок мало бути все норм, але мені і там і там все пройшло**
