@@ -162,8 +162,6 @@ ls -l /home/test_tmp/
 ```
 ![alt text](image-20.png)
 
----
-**І тут почалося найцікавіше щоб я не робив воно виконує від імені хто виконує**
 
 - Try executing test_suid.sh script from different users
 ``` Bash
@@ -180,6 +178,8 @@ sudo chown testuser2 /home/test_tmp/suid_test.sh
 ```
 ![alt text](image-22.png)
 
+---
+**І тут почалося найцікавіше, щоб я не робив воно виконує від імені хто виконує**
 **Я пробував активувати suid:**
 ``` Bash
 sudo nano /etc/default/grub
@@ -191,19 +191,68 @@ mount | grep "$(df / | tail -1 | awk '{print $1}')"
 # Output:
 # /dev/sda2 on / type ext4 (rw,relatime)
 ```
-**Все стверджує що має працювати але...**
+**Все стверджує що має працювати але не працює. А стек овер флов взагалі пише що Bash скрипти не виконуються таким чином**
+
+---
 
 ### Adding/Creating New Storage Devices to the Linux OS:
 - Add 3x new Disk controllers to the Virtual Machine: SCSI, SAS and NVME(NOTE: Extension pack to VBox must be added in order to use NVME Controllers).
-
+```
+VirtualBox -> Settings -> Storage -> Add Controllers: SCSI, SAS, NVMe
+```
+![alt text](image-23.png)
 
 - Add 2xNew HDDs to each of the Disk Controllers (Select VDI, Dynamic Allocation 1Gb size)
+```
+VirtualBox -> Settings -> Storage -> SCSI -> Add Hard Disk -> Create
+```
+![alt text](image-24.png)
 
+![alt text](image-25.png)
+
+![alt text](image-26.png)
+
+![alt text](image-27.png)
+
+![alt text](image-28.png)
 
 - Verify which device nodes were created in the /dev folder for each of the Drives added.
 
+**Під час завантаження VM в мене викикла помилка**
+```
+VM Name: UbuntuDesktop
+
+A virtual device is configured in the VM settings but the device implementation is missing.
+A possible reason for this error is a missing extension pack. Note that as of VirtualBox 4.0, certain features (for example USB 2.0 support and remote desktop) are only available from an 'extension pack' which must be downloaded and installed separately (VERR_PDM_DEVICE_NOT_FOUND).
+Result Code:
+NS_ERROR_FAILURE (0x80004005)
+Component:
+ConsoleWrap
+Interface:
+IConsole {6ac83d89-6ee7-4e33-8ae6-b257b2e81be8}
+```
+**Знайшов рішення на [Stackover flow](https://askubuntu.com/questions/453393/virtualbox-fails-with-implementation-of-the-usb-2-0-controller-not-found-after)**
+
+``` Bash
+sudo VBoxManage extpack install --replace Oracle_VirtualBox_Extension_Pack-7.1.4.vbox-extpack
+sudo VBoxManage extpack cleanup
+```
+
+``` Bash
+lsblk
+```
+
+![alt text](image-29.png)
+
+```
+SCSI Диски: /dev/sda, /dev/sdb
+SAS Диски: /dev/sdd, /dev/sde
+NVMe Диски: /dev/nvme0n1, /dev/nvme0n2
+```
 
 - Create MBR partition table with a total of 4x partitions similar in size ( 2x Primary and 2x Logical partitions)  for the 1st drive for SCSI and NVME disk controllers using parted utility. (25%, 50%, 75%,100% can be used when specifying partition size)
+
+
 
 
 - Create GPT partition table with a total of 4x partitions similar in size for the 2nd drive for SCSI and NVMEdisk controllers using parted utility. (25%, 50%, 75%,100% can be used when specifying partition size).
