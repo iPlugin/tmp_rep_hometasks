@@ -1,7 +1,6 @@
 ![alt text](screen/logo.png)
 
 # Вітаю Yanina Husarevych
-
 ## Description of the homework
 ### Block/Allow file deletion from directory by other users:
 - Create test_tmp directory in /home folder from using the root user permissions
@@ -39,3 +38,92 @@
 - Investigate available free disk space for each of the filesystems mounted (Also record output to some file for the later evaluation).
 
 ## Work in Progress
+### Block/Allow file deletion from directory by other users:
+- Create test_tmp directory in /home folder from using the root user permissions
+``` Bash
+sudo su
+mkdir /home/test_tmp
+```
+![alt text](image.png)
+
+``` Bash
+ll /home
+```
+![alt text](image-1.png)
+
+- Set rwx permissions for the owner, group and others to /home/test_tmp
+``` Bash
+chmod 777 /home/test_tmp
+```
+![alt text](image-2.png)
+
+``` Bash
+ll /home
+```
+![alt text](image-3.png)
+
+- Create test TEXT files in /home/test_tmp folder with testuser1 permissions
+``` Bash
+touch /home/test_tmp/test1.txt
+chown testuser1:testgroup1 /home/test_tmp/test1.txt
+```
+![alt text](image-4.png)
+
+``` Bash
+ll /home/test_tmp
+```
+![alt text](image-5.png)
+
+- Create test TEXT files in /home/test_tmp folder with testuser2 permissions
+``` Bash
+touch /home/test_tmp/test2.txt
+chown testuser2:testgroup2 /home/test_tmp/test2.txt
+```
+![alt text](image-6.png)
+
+``` Bash
+ll /home/test_tmp
+```
+![alt text](image-7.png)
+
+- Block file deletion from this directory by other users
+``` Bash
+chmod 775 /home/test_tmp
+```
+![alt text](image-8.png)
+
+``` Bash
+ll /home/test_tmp
+```
+![alt text](image-9.png)
+
+- Try deleting files belonging to testuser1 from the testuser2 account
+``` Bash
+su testuser2
+rm -f /home/test_tmp/test1.txt
+```
+![alt text](image-10.png)
+
+- Allow file deletion from this directory by other users
+``` Bash
+chmod 777 /home/test_tmp
+```
+![alt text](image-11.png)
+
+``` Bash
+ll /home/test_tmp
+```
+![alt text](image-12.png)
+
+- Try deleting files belonging to testuser1 from the testuser2 account
+``` Bash
+su testuser2
+rm -f /home/test_tmp/test1.txt
+```
+![alt text](image-13.png)
+
+``` Bash
+ls -l /home/test_tmp
+```
+![alt text](image-14.png)
+
