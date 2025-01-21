@@ -1,4 +1,4 @@
-![alt text]((screen/logo.png)
+![alt text](screen/logo.png)
 # Homework 6 | `Deadline 21 January`
 ## Topics in this lecture:
 - cut - remove sections from each line of files
