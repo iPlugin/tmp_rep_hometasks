@@ -28,16 +28,16 @@
 VirtualBox -> Settings -> Storage -> Add Controllers: +SCSI +SAS +NVMe
 ```
 
-![alt text](image.png)
+![alt text](screen/image.png)
 
 - Add 2xNew HDDs to each of the Disk Controllers (Select VDI, Dynamic Allocation 1Gb size)
 ```
 VirtualBox -> Settings -> Storage -> SCSI -> Add Hard Disk -> Create
 ```
 
-![alt text](image-1.png)
+![alt text](screen/image-1.png)
 
-![alt text](image-2.png)
+![alt text](screen/image-2.png)
 
 - Verify which device nodes were created in the /dev folder for each of the Drives added.
 
@@ -67,7 +67,7 @@ sudo VBoxManage extpack cleanup
 lsblk
 ```
 
-![alt text](image-3.png)
+![alt text](screen/image-3.png)
 
 ```
 SCSI Диски: `/dev/sdd`, `/dev/sde`
@@ -102,7 +102,7 @@ sudo parted /dev/sdd
 # (parted) quit
 ```
 
-![alt text](image-4.png)
+![alt text](screen/image-4.png)
 
 ``` Bash
 sudo parted /dev/nvme0n1
@@ -117,7 +117,7 @@ sudo parted /dev/nvme0n1
 # (parted) quit
 ```
 
-![alt text](image-5.png)
+![alt text](screen/image-5.png)
 
 - Create GPT partition table with a total of 4x partitions similar in size for the 2nd drive for SCSI and NVMEdisk controllers using parted utility. (25%, 50%, 75%,100% can be used when specifying partition size).
 
@@ -133,7 +133,7 @@ sudo parted /dev/sde
 # (parted) quit
 ```
 
-![alt text](image-6.png)
+![alt text](screen/image-6.png)
 
 ``` Bash
 sudo parted /dev/nvme0n2
@@ -147,7 +147,7 @@ sudo parted /dev/nvme0n2
 # (parted) quit
 ```
 
-![alt text](image-7.png)
+![alt text](screen/image-7.png)
 
 - Create MBR partition table with a total of 4x partitions similar in size ( 2x Primary and 2x Logical partitions)  for the 1st drive for SAS disk controller using fdisk utility
 
@@ -183,7 +183,7 @@ sudo fdisk /dev/sdb
 # Command (m for help): w
 ```
 
-![alt text](image-8.png)
+![alt text](screen/image-8.png)
 
 - Create GPT partition table with a total of 4x partitions similar in size for the 2nd drive for SAS disk controller using fdisk utiliy.
 
@@ -214,7 +214,7 @@ sudo fdisk /dev/sdc
 # Command (m for help): w
 ```
 
-![alt text](image-9.png)
+![alt text](screen/image-9.png)
 
 
 - Compare Partition Table display information using fdisk and parted utilities.
@@ -223,13 +223,13 @@ sudo fdisk /dev/sdc
 sudo fdisk -l /dev/sdc
 ```
 
-![alt text](image-10.png)
+![alt text](screen/image-10.png)
 
 ``` Bash
 sudo parted /dev/sde print
 ```
 
-![alt text](image-11.png)
+![alt text](screen/image-11.png)
 
 - Verify how disk device nodes were changed in the /dev folder for each of the drives added.
 
@@ -237,9 +237,9 @@ sudo parted /dev/sde print
 ll /dev
 ```
 
-![alt text](image-12.png)
+![alt text](screen/image-12.png)
 
-![alt text](image-13.png)
+![alt text](screen/image-13.png)
 
 - Create 24x subfolders in the /mnt directory with the following names: nvme0n[12]_ext4, nvme0n[12]_xfs, nvme0n[12]_reiserfs, nvme0n[12]_btrfs, sd[bcde]_ext4, sd[bcde]_xfs, sd[bcde]_reiserfs, sd[bcde]_btrfs.
 
@@ -247,13 +247,13 @@ ll /dev
 sudo mkdir -p /mnt/{nvme0n1,nvme0n2,sdb,sdc,sdd,sde}_{ext4,xfs,reiserfs,btrfs}
 ```
 
-![alt text](image-14.png)
+![alt text](screen/image-14.png)
 
 ``` Bash
 ll /mnt
 ```
 
-![alt text](image-15.png)
+![alt text](screen/image-15.png)
 
 - Create 4x different filesystems per each of the Disk Drives: xfs4, xfs, reiserfs, btrfs using mkfs.* utilities (NOTE:Appropriate FS*progs packages would probably need to be installed in order to get desired utilities for FS creation, follow bash hints in order to get them installed quickly). Use default options for creating FSs.
 
@@ -269,12 +269,12 @@ ll /mnt
 sudo apt install -y e2fsprogs xfsprogs reiserfsprogs btrfs-progs
 ```
 
-![alt text](image-16.png)
+![alt text](screen/image-16.png)
 
 
 #### Для SCSI дисків:
 
-![alt text](image-17.png)
+![alt text](screen/image-17.png)
 
 ``` Bash
 sudo mkfs.ext4 /dev/sdd1
@@ -283,7 +283,7 @@ sudo mkfs.reiserfs /dev/sdd5
 sudo mkfs.xfs /dev/sdd6
 ```
 
-![alt text](image-18.png)
+![alt text](screen/image-18.png)
 
 ``` Bash
 sudo mkfs.ext4 /dev/sde1
@@ -296,11 +296,11 @@ sudo mkfs.xfs /dev/sde4
 lsblk -f
 ```
 
-![alt text](image-21.png)
+![alt text](screen/image-21.png)
 
 #### Для SAS дисків:
 
-![alt text](image-19.png)
+![alt text](screen/image-19.png)
 
 ``` Bash
 sudo mkfs.ext4 /dev/sdb1
@@ -309,7 +309,7 @@ sudo mkfs.reiserfs /dev/sdb5
 sudo mkfs.xfs /dev/sdb6
 ```
 
-![alt text](image-20.png)
+![alt text](screen/image-20.png)
 
 ``` Bash
 sudo mkfs.ext4 /dev/sdc1
@@ -324,11 +324,11 @@ lsblk -f
 
 **Я вже цю домашку переробляю другий раз і я не розумію чому так але впевний момент часу диски міняються місцями sda -> sdc і не тільки вони... Я довго мучився і зрозумів що проблема в SAS дисках. Попередній раз вони помінялися місцями з sdc і я видалив головний свій диск. Тому перестановлював віртуальну і перероблював всі дз. Можете помітити по username@hostname**
 
-![alt text](image-22.png)
+![alt text](screen/image-22.png)
 
 #### Для NVMe дисків:
 
-![alt text](image-19.png)
+![alt text](screen/image-19.png)
 
 ``` Bash
 sudo mkfs.ext4 /dev/nvme0n1p1
@@ -337,7 +337,7 @@ sudo mkfs.reiserfs /dev/nvme0n1p5
 sudo mkfs.xfs /dev/nvme0n1p6
 ```
 
-![alt text](image-20.png)
+![alt text](screen/image-20.png)
 
 ``` Bash
 sudo mkfs.ext4 /dev/nvme0n2p1
@@ -379,7 +379,7 @@ sudo mount /dev/sda6 /mnt/sdc_xfs
 lsblk
 ```
 
-![alt text](image-23.png)
+![alt text](screen/image-23.png)
 
 - Investigate available free disk space for each of the filesystems mounted (Also record output to some file for the later evaluation).
 
@@ -387,4 +387,4 @@ lsblk
 df -h
 ```
 
-![alt text](image-24.png)
+![alt text](screen/image-24.png)
