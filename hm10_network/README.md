@@ -34,32 +34,68 @@ wireshark: frame.number <= 100
 
 ### You’d receive dumped packets from the real internet traffic. The dump is in hex format.
 - If packet is an IP packet find source and destination addresses
+
 ```
-wireshark: (ip || ipv6) && frame.number <= 100
-Такккк мені відкинуло тільки 3 пакети з 100 це погано, так як переписувати 97 пакетів 'source and destination addresses' це дуже багато часу займе 
+wireshark: frame.number <= 100 && (ip || ipv6)
 ```
+
 ![alt text](image-2.png)
 
 ```
-Тому я вирішив зберегти 97 пакетів в окремий файлю.csv
-File -> Export Packet Dissections -> As CSV
+File -> Save As -> `pkt-ip.pcapng`
 ```
 
 ![alt text](image-3.png)
 
-```
-Так як на Kali нема Editora який зможе відкривати файли .csv, мені пропонує DB Browser for SQLite
+**Створимо файл .py для аналізу даних (source and destination addresses). Ідею почерпнув з телеграму одного програміста [посилання](https://t.me/+Js93xt0NFmJiOWZi)**
+
+``` Bash
+# Сторив нову папку для файлів щоб воно не було в Downloads
+ll
+mkdir ~/Homework10/
+mv ~/Downloads/* ~/Homework10
+cd ~/Homework10
+ll
 ```
 
 ![alt text](image-4.png)
 
-```
-Тому я вирішив SQL командою відфільтрувати номер | джерело | призначення
-SQLite: select field1, field3, field4 from 'pkt-ip'
+``` Bash
+nano analysis-pkt-ip.py
+cat analysis-pkt-ip.py
 ```
 
 ![alt text](image-5.png)
 
+``` Bash
+sudo apt update && sudo apt install -y python3-scapy tshark
+```
+
+![alt text](image-6.png)
+
+``` Bash
+pip3 install pyshark --break-system-packages
+```
+
+![alt text](image-7.png)
+
+``` Bash
+python3 ./analysis-pkt-ip.py pkt-ip.pcapng
+```
+
+![alt text](image-8.png)
+
+``` Bash
+whois 149.154.164.99
+```
+
+![alt text](image-9.png)
+
+**Після того як ми переконалися що це НЕ pornhub.com від лектора Андрія 😂, можемо перейти попосиланню**
+
+![alt text](image-10.png)
+
+**Нас зустрічає батько всіх телеграм ботів 😍, маю з ним проєкт в себе в github [посилання](https://github.com/iPlugin/PROJ/tree/main/py_aiogram_linux)**
 
 - If the packet was used for TCP stream find source and destination ports
 
