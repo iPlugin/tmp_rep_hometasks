@@ -19,13 +19,13 @@
 ```
 File -> Open -> /home/student/GL_BS_capture.pcapng
 ```
-![alt text](image.png)
+![alt text](screen/image.png)
 
 ```
 View -> Coloring Rules
 ```
 
-![alt text](image-1.png)
+![alt text](screen/image-1.png)
 
 ```
 Серед перших 100 пакетів знайти (IP, TCP, HTTP, ICMP) і проаналізувати їх.
@@ -39,13 +39,13 @@ wireshark: frame.number <= 100
 wireshark: frame.number <= 100 && (ip || ipv6)
 ```
 
-![alt text](image-2.png)
+![alt text](screen/image-2.png)
 
 ```
 File -> Save As -> `pkt-ip.pcapng`
 ```
 
-![alt text](image-3.png)
+![alt text](screen/image-3.png)
 
 ``` Bash
 # Створив нову папку для файлів щоб воно не було в Downloads
@@ -56,7 +56,7 @@ cd ~/Homework10
 ll
 ```
 
-![alt text](image-4.png)
+![alt text](screen/image-4.png)
 
 **Створимо файл .py для аналізу даних (source and destination addresses). Ідею почерпнув з телеграму одного програміста [посилання](https://t.me/+Js93xt0NFmJiOWZi)**
 
@@ -65,37 +65,37 @@ nano analysis-pkt-ip.py
 cat analysis-pkt-ip.py
 ```
 
-![alt text](image-5.png)
+![alt text](screen/image-5.png)
 
 ``` Bash
 # Завантажуємо залежності
 sudo apt update && sudo apt install -y python3-scapy tshark
 ```
 
-![alt text](image-6.png)
+![alt text](screen/image-6.png)
 
 ``` Bash
 # Завантажуємо залежності 
 pip3 install pyshark --break-system-packages
 ```
 
-![alt text](image-7.png)
+![alt text](screen/image-7.png)
 
 ``` Bash
 python3 ./analysis-pkt-ip.py pkt-ip.pcapng
 ```
 
-![alt text](image-8.png)
+![alt text](screen/image-8.png)
 
 ``` Bash
 whois 149.154.164.99
 ```
 
-![alt text](image-9.png)
+![alt text](screen/image-9.png)
 
 **Після того як ми переконалися що це НЕ pornhub.com від лектора Андрія 😂, можемо перейти по IP адресу**
 
-![alt text](image-10.png)
+![alt text](screen/image-10.png)
 
 **Нас зустрічає батько всіх телеграм ботів 😍, маю з ним проєкт в себе в [github](https://github.com/iPlugin/PROJ/tree/main/py_aiogram_linux)**
 
@@ -107,7 +107,7 @@ whois 149.154.164.99
 wireshark: frame.number <= 100 && tcp
 ```
 
-![alt text](image-11.png)
+![alt text](screen/image-11.png)
 
 ```
 File -> Save As -> `pkt-tcp.pcapng`
@@ -115,9 +115,9 @@ File -> Save As -> `pkt-tcp.pcapng`
 
 **Так як TCP пакетів доволі багато я скористаюся тим що ви написали в групі: "Можете подивитись весь трафік і пошукати якісь цікаві вам пакети". Тому я оцінюю це як з перших 100 пакетів знайти TCP цікавий і описати його. Для мене цікавий пакет виявився під номером 87 так як він позначений не стандартним кольором. Якщо судити з Coloring Rules (скрін був десь зверху) то проблема в "Checksum Errors" або "Bad TCP"**
 
-![alt text](image-12.png)
+![alt text](screen/image-12.png)
 
-![alt text](image-13.png)
+![alt text](screen/image-13.png)
 
 ```
 Довжина фрейму: 528 біт
@@ -125,7 +125,7 @@ File -> Save As -> `pkt-tcp.pcapng`
 Фрейм типу: Bad TCP - проблема можливо в прапорцях або в віконному оновлені
 ```
 
-![alt text](image-14.png)
+![alt text](screen/image-14.png)
 
 ```
 MAC-адреса відправника: c0:18:03:5e:8b:0c
@@ -133,7 +133,7 @@ MAC-адреса отримувача: 2c:79:d7:2c:23:70
 Тип протоколу: IPv4 (0x0800)
 ```
 
-![alt text](image-15.png)
+![alt text](screen/image-15.png)
 
 ```
 Адреса відправника: 192.168.2.201 - приватна ip
@@ -144,8 +144,8 @@ MAC-адреса отримувача: 2c:79:d7:2c:23:70
 Протокол: TCP (6)
 ```
 
-![alt text](image-16.png)
-![alt text](image-17.png)
+![alt text](screen/image-16.png)
+![alt text](screen/image-17.png)
 
 ```
 Порт відправника: 41554 - порт згенерований ОС
@@ -166,15 +166,15 @@ MAC-адреса отримувача: 2c:79:d7:2c:23:70
 wireshark: frame.number <= 100 && http
 ```
 
-![alt text](image-18.png)
-![alt text](image-19.png)
+![alt text](screen/image-18.png)
+![alt text](screen/image-19.png)
 
 ```
 Довжина фрейму: 5008 біт
 Час прибуття: Jan 30, 2025 03:51:49 UTC
 ```
 
-![alt text](image-20.png)
+![alt text](screen/image-20.png)
 
 ```
 MAC-адреса відправника: c0:18:03:5e:8b:0c
@@ -182,7 +182,7 @@ MAC-адреса отримувача: 2c:79:d7:2c:23:70
 Тип протоколу: IPv4 (0x0800)
 ```
 
-![alt text](image-21.png)
+![alt text](screen/image-21.png)
 
 ```
 Адреса відправника: 192.168.2.201 - приватна ip
@@ -193,7 +193,7 @@ MAC-адреса отримувача: 2c:79:d7:2c:23:70
 Протокол: TCP (6)
 ```
 
-![alt text](image-22.png)
+![alt text](screen/image-22.png)
 
 ```
 Порт відправника: 57372 - порт згенерований ОС
@@ -204,7 +204,7 @@ MAC-адреса отримувача: 2c:79:d7:2c:23:70
 Прапорець TCP: ACK, PSH
 ```
 
-![alt text](image-23.png)
+![alt text](screen/image-23.png)
 
 ```
 Хост: httpforever.com
@@ -218,7 +218,7 @@ Accept-Language: uk-UA - мова інтерфейсу
 
 **Фрейм 71 відповідь на запит 50 фрейм**
 
-![alt text](image-24.png)
+![alt text](screen/image-24.png)
 
 **Web page address (146.190.62.39) httpforever.com**
 
@@ -229,15 +229,15 @@ Accept-Language: uk-UA - мова інтерфейсу
 wireshark: frame.number <= 100 && (icmp || icmpv6)
 ```
 
-![alt text](image-29.png)
-![alt text](image-25.png)
+![alt text](screen/image-29.png)
+![alt text](screen/image-25.png)
 
 ```
 Довжина фрейму: 688 біт
 Час прибуття: Jan 30, 2025 03:51:49 UTC
 ```
 
-![alt text](image-26.png)
+![alt text](screen/image-26.png)
 
 ```
 MAC-адреса відправника: 2c:79:d7:2c:23:70
@@ -245,7 +245,7 @@ MAC-адреса отримувача: 33:33:00:00:00:01
 Тип протоколу: IPv6 (0x86dd)
 ```
 
-![alt text](image-27.png)
+![alt text](screen/image-27.png)
 
 ```
 Адреса відправника: fe80::1
@@ -254,7 +254,7 @@ Traffic Class: 0x00 (DSCP: CS0, ECN: Not-ECT)
 Hop Limit: 255 
 ```
 
-![alt text](image-28.png)
+![alt text](screen/image-28.png)
 
 ```
 Тип повідомлення: 136 - Neighbor Advertisement
