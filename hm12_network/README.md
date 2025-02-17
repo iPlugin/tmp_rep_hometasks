@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 12 | `Deadline 11 February` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_network/pres/GlobalLogic%20Lec4%20Typical%20Stacks.pdf)
+# Homework 12 | `Deadline 11 February` | Typical application network stack
 ## Topics in this lecture:
 - Streaming protocols TCP/IP
 - Datagram protocols UDP/IP

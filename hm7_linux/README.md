@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 7 | `Deadline 24 January` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_linux/pres/GlobalLogic%20Lec7%20Other%20useful%20information.pdf)
+# Homework 7 | `Deadline 24 January` | Other useful information
 ## Topics in this lecture:
 - hexdump
 - lsof

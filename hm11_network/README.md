@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 11 | `Deadline 5 February` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_network/pres/GlobalLogic%20Lec3%20Networking%20Tools.pdf)
+# Homework 11 | `Deadline 5 February` | OS network tools
 ## Topics in this lecture:
 - Configuration of the operating system:
     - hostname

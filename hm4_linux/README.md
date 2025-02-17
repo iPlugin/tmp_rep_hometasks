@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 4 | `Deadline 24 Dec` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_linux/pres/GlobalLogic%20Lec4%20Command%20line%20part2.pdf)
+# Homework 4 | `Deadline 24 Dec` | Linux command line intro. Part 2
 ## Topics in this lecture:
 - Input/output streams
 - Pipes

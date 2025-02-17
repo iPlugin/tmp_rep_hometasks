@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 13 | `Deadline 12 February` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_network/pres/GlobalLogic%20Lec5%20Domain%20name%20system.pdf)
+# Homework 13 | `Deadline 12 February` | Domain name system
 ## Topics in this lecture:
 - Concept of name resolution 
 - Tools: host, nslookup, delv, whois

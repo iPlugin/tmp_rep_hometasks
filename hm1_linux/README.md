@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 1 | `Deadline 17 Dec` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_linux/pres/GlobalLogic%20Lec1%20Smart%20Start.pdf)
+# Homework 1 | `Deadline 17 Dec` | Starting with Linux
 ## Topics in this lecture:
 - GNU/Linux overview, Kernel, drivers, GUI, userspace processes
 - Linux distributives

@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 3 | `Deadline 24 Dec` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_linux/pres/GlobalLogic%20Lec3%20Command%20line%20part1.pdf)
+# Homework 3 | `Deadline 24 Dec` | Linux command line intro. Part 1
 ## Topics in this lecture:
 - GNU/Linux overview,
 - Terminal vs console vs Shell 

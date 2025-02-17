@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 5 | `Deadline 15 Jan` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_linux/pres/GlobalLogic%20Lec5%20File%20System.pdf)
+# Homework 5 | `Deadline 15 Jan` | File System
 ## Topics in this lecture:
 - Filesystems
 

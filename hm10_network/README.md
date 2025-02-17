@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 10 | `Deadline 4 February` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_network/pres/GlobalLogic%20Lec2%20Networking%20Basics.pdf)
+# Homework 10 | `Deadline 4 February` | Networking basics
 ## Topics in this lecture:
 - Model OSI
 - Network subsystem in OS

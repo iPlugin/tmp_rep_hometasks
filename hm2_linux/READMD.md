@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 2 | `Deadline 18 Dec` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_linux/pres/GlobalLogic%20Lec2%20Booting%20Linux.pdf)
+# Homework 2 | `Deadline 18 Dec` | An introduction to the Linux boot and startup processes
 ## Topics in this lecture:
 - GNU/Linux overview,
 - What is an Operating System boot,

@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 8 | `Deadline 28 January` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_linux/pres/GlobalLogic%20Lec8%20Bash%20Scripting.pdf)
+# Homework 8 | `Deadline 28 January` | Bash scripting
 ## Topics in this lecture:
 - Conditional statements (if, then else, case)
 - Variables

@@ -1,5 +1,5 @@
 ![alt text](screen/logo.png)
-# Homework 6 | `Deadline 21 Jan` | [Presentation](https://github.com/iPlugin/EDUC/blob/main/os_linux/pres/GlobalLogic%20Lec6%20Command-line%20processors.pdf)
+# Homework 6 | `Deadline 21 Jan` | Command-line processors
 ## Topics in this lecture:
 - cut - remove sections from each line of files
 - tr - translate or delete characters
